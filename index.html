@@ -10,8 +10,8 @@
         :root {
             --primary-color_1: #ffffff;
             --primary-color: #112a50;
-            --secondary-color: #e74c3c;
-            --accent-color: #25D366;
+            --secondary-color: #c42312;
+            --accent-color: #009640;
             --text-color: #333;
             --light-gray: #f8f9fa;
             --medium-gray: #e1e1e1;
@@ -30,7 +30,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(135deg, #8ac960 0%, #c4b84c 100%);
+            background: linear-gradient(135deg, #ffffff 100%, #ffffff 100%);
             padding: 20px;
             color: var(--text-color);
         }
@@ -39,8 +39,8 @@
             width: 100%;
             max-width: 420px;
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-radius: 30px;
+            box-shadow: 0 50px 80px rgba(0, 0, 0, 0.15);
             overflow: hidden;
             position: relative;
             transform-style: preserve-3d;
@@ -54,7 +54,7 @@
         .card-header {
             background: var(--primary-color_1);
             color: white;
-            padding: 20px;
+            padding: 10px;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -63,9 +63,9 @@
         }
 
         .card-header-1 {
-            background: var(--primary-color);
+            background: linear-gradient(135deg, #009640 0%, #000033 100%);
             color: white;
-            padding: 25px;
+            padding: 20px;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -78,9 +78,31 @@
             bottom: -50px;
             right: -50px;
             width: 100px;
-            height: 100px;
+            height: 80px;
             background: rgba(255, 255, 255, 0.253);
             border-radius: 50%;
+        }
+
+        .card-header-2 {
+            background: linear-gradient(135deg, #009640 0%, #000033 100%);
+            color: white;
+            padding: 5px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-header-2::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 100px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.253);
+            border-radius: 100%;
         }
         
         .company-name {
@@ -96,9 +118,10 @@
             font-size: 14px;
             opacity: 0.9;
             margin-bottom: 3px;
-            color: #00B0F0;
+            color: #141853;
             text-align: right;
             flex: 1;
+            
         }
         
         .card-body {
@@ -115,8 +138,8 @@
         }
         
         .profile-img {
-            width: 90px;
-            height: 90px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--primary-color);
@@ -232,7 +255,7 @@
         }
         
         .save-contact:hover {
-            background: #1d4b8f;
+            background: #1961ce;
         }
         
         .whatsapp {
@@ -240,7 +263,7 @@
         }
         
         .whatsapp:hover {
-            background: #1da851;
+            background: #0ddd5a;
         }
         
         .rdv {
@@ -248,7 +271,7 @@
         }
         
         .rdv:hover {
-            background: #c0392b;
+            background: #ff1900;
         }
         
         .watermark {
@@ -338,7 +361,7 @@
             <div class="contact-info">
                 <div class="contact-item">
                     <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                    <div>+242 06 625 90 33</div>
+                    <div>+242 06 625 90 33 <br>+242 04 420 33 19</div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
@@ -371,6 +394,10 @@
             </div>
             <div class="watermark">AGC-VIE © 2025</div>
         </div>
+        <div class="card-header-2">
+            <div class="company-sub">
+            </div>
+        </div>
     </div>
     <script src="app.js"></script>
 
@@ -378,9 +405,10 @@
         // Données de la carte de visite
         const contactData = {
             company: "ASSURANCES GENERALES DU CONCO-VIE",
-            membership: "MEMBRE DU RESEARCH",
+            membership: "MEMBRE DU RESEAU",
             network: "Globus",
             phone1: "+242 06 625 90 33",
+            phone2: "+242 04 420 33 19",
             address: "BP.: 1110 Brazzaville, Avenue Amilcar Cabral Centre-ville",
             email1: "branly.loussikila@outlook.fr",
             email2: "alex.loussikila@agc-vie.cg",
@@ -394,7 +422,7 @@
             const vcard = `BEGIN:VCARD
 VERSION:3.0
 FN:${contactData.name}
-ORG:${contactData.company}
+ORG:${contactData.name}-${contactData.company}
 TITLE:${contactData.title}
 TEL;TYPE=WORK,VOICE:${contactData.phone1}
 TEL;TYPE=WORK,VOICE:${contactData.phone2}
@@ -423,7 +451,7 @@ END:VCARD`;
             const vcard = `BEGIN:VCARD
 VERSION:3.0
 FN:${contactData.name}
-ORG:${contactData.company}
+ORG:${contactData.name}-${contactData.company}
 TITLE:${contactData.title}
 TEL;TYPE=WORK,VOICE:${contactData.phone1}
 TEL;TYPE=WORK,VOICE:${contactData.phone2}
